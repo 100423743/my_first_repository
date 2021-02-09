@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title NEW!!</title>
+    <style>
+        body {
+            background-color: white;
+        }
+        .special {
+            color: rgb(57, 190, 83)
+        }
+        .operator {
+            font-weight: bold;
+        }
+        #result {
+            border: solid 1pt;
+            border-color: gray
+        }
+    </style>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+        function op() {
+            const x = document.getElementById('first').value;
+            const y = document.getElementById('second').value;
+            var select = document.getElementById("operators"); /*Obtener el SELECT */
+            var valor = select.options[select.selectedIndex].value; /* Obtener el valor */
+            if (valor == "+") {
+                document.getElementById("result").innerHTML = parseInt(x) + parseInt(y);
+            } else if (valor == "-") {
+                document.getElementById("result").innerHTML = parseInt(x) - parseInt(y);
+            } else if (valor == "*") {
+                document.getElementById("result").innerHTML = parseInt(x) * parseInt(y);
+            } else if (valor == "/") {
+                document.getElementById("result").innerHTML = parseInt(x) / parseInt(y);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+ <h2>My first calculator</h2>
+
+ <div class="special">
+     Insert the operation:<br><br>
+     <input id="first" placeholder="First number">
+     <br><br>
+     Choose an operator:
+     <br>
+     <select id="operators">
+         <option value="+">+</option>
+         <option value="-">-</option>
+         <option value="*">*</option>
+         <option value="/">/</option>
+     </select>
+     <br><br>
+     <input id="second" placeholder="Second number">
+     <br><br>
+     <button id="equalTo" onclick="op()">=</button>
+     <div id="result">Result</div>
+ </div>
+</body>
+</html>
